@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.telecom.hz.sample.mapper.UserMapper">
+    <resultMap type="User" id="userAuthoritiesMap">
+    	<constructor>
+    		<idArg column="id" javaType="long"/>
+    	</constructor>
+    	<result property="username" column="username"/>
+    	<result property="password" column="password"/>
+    	<result property="isEnabled" column="is_enabled"/>
+    	<collection property="roles" ofType="Role">
+    		<id property="id" column="role_id"/>
+    		<collection property="authorities" ofType="Authority">
+    			<id property="id" column="authority_id"/>
+    			<result property="name" column="authority_name"/>
+    		</collection>
+    	</collection>
+    </resultMap>
+</mapper>

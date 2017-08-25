@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.telecom.hz.sample.mapper.ProjectMapper">
+    <resultMap type="Project" id="projectDetailsMap">
+    	<constructor>
+    		<idArg column="id" javaType="long"/>
+    	</constructor>
+    	<result property="userId" column="user_id"/>
+    	<result property="name" column="name"/>
+    	<result property="tag" column="tag"/>
+    	<result property="description" column="description"/>
+    	<result property="createTime" column="create_time"/>
+    	<collection property="machines" ofType="VirtualMachine">
+    		<id property="id" column="vm_id"/>
+    		<result property="name" column="vm_name"></result>
+    	</collection>
+    </resultMap>
+</mapper>

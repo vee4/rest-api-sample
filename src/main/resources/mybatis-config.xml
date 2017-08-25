@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015-2016 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 开启缓存 -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- 开启懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- 懒加载对象加载时属性按需加载 -->
+		<setting name="aggressiveLazyLoading" value="false" />
+		<!-- 设置SQL执行器类型为预编译执行器 -->
+		<setting name="defaultExecutorType" value="REUSE" />
+		<!-- 本地缓存共享域为session会话 -->
+		<setting name="localCacheScope" value="SESSION" />
+		<setting name="useGeneratedKeys" value="true"/>
+		<!-- 设置日志实现类型 -->
+		<setting name="logImpl" value="SLF4J" />
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 设置超时时间，单位秒s -->
+		<setting name="defaultStatementTimeout" value="3" />
+		<!-- 默认查询结果返回条目数 -->
+		<setting name="defaultFetchSize" value="100" />
+	</settings>
+	<typeAliases>
+		<package name="com.telecom.hz.sample.domain" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="public/mapper/user_mapper.xml" />
+		<mapper resource="public/mapper/project_mapper.xml" />
+		<!-- <package name="public/mapper/*_mapper.xml"/> -->
+	</mappers>
+</configuration>
